@@ -17,6 +17,7 @@ from keras.layers import Dense, Dropout, Input, BatchNormalization
 from keras.callbacks import EarlyStopping, ReduceLROnPlateau
 from keras.regularizers import l1_l2
 from keras.optimizers import Adam
+import joblib
 import matplotlib.pyplot as plt
 
 # ==========================================
@@ -340,6 +341,7 @@ def main():
     plt.tight_layout()
     plt.show()
     
+    joblib.dump(scaler, 'scaler.pkl')
     # Save Model
     model.save('invoice_forgery_mlp_model.h5')
 
